@@ -6,7 +6,15 @@ import java.util.List;
 
 public class Queue {
 
-    List<Integer> queueList = new ArrayList<>();
+    private List<Integer> queueList = new ArrayList<>();
+
+    public List<Integer> getQueueList() {
+        return queueList;
+    }
+
+    public void setQueueList(List<Integer> queueList) {
+        this.queueList = queueList;
+    }
 
     public void enqueue(int newElement) {
         queueList.add(newElement);
@@ -19,21 +27,20 @@ public class Queue {
         return size;
     }
 
-    public int dequeue() {
-        if (queueList.size() == 0) {
-            throw new Error("QueueTooSmallException");
+    public int dequeue() throws QueueTooSmallException {
+        if (queueList.isEmpty()) {
+            throw new QueueTooSmallException();
         } else {
-            int firstElement = queueList.get(0);
-            queueList.remove(0);
+            int firstElement = queueList.remove(0);
             System.out.println(firstElement);
             return firstElement;
         }
     }
 
-    public int[] dequeue(int n) {
+    public int[] dequeue(int n) throws QueueTooSmallException {
         ArrayList<Integer> numbers = new ArrayList<>();
-        if (queueList.size() == 0) {
-            throw new Error("QueueTooSmallException");
+        if (queueList.isEmpty()) {
+            throw new QueueTooSmallException();
         } else {
             int i = 0;
             while (i < n) {

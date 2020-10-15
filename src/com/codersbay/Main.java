@@ -11,14 +11,22 @@ public class Main {
         queue.enqueue(5);
         queue.enqueue(6);
         queue.enqueue(7);
-        queue.dequeue(4);
+        try {
+            queue.dequeue(4);
+        } catch (QueueTooSmallException e) {
+            e.printStackTrace();
+        }
         queue.size();
         queue.enqueue(22);
         queue.enqueue(25);
         queue.enqueue(34);
         queue.enqueue(16);
         queue.enqueue(39);
-        queue.dequeue();
+        try {
+            queue.dequeue(4);
+        } catch (QueueTooSmallException e) {
+            e.printStackTrace();
+        }
         queue.size();
 
 
@@ -29,10 +37,25 @@ public class Main {
         queue1.enqueue(99);
         queue1.enqueue(857);
         queue1.size();
-        queue1.dequeue();
+        try {
+            queue.dequeue(4);
+        } catch (QueueTooSmallException e) {
+            e.printStackTrace();
+        }
         queue1.size();
-        queue1.dequeue(3);
+        try {
+            queue.dequeue(4);
+        } catch (QueueTooSmallException e) {
+            e.printStackTrace();
+        }
         queue1.size();
 
+
+        Queue queue2 = new Queue();
+        try {
+            queue.dequeue(4);
+        } catch (QueueTooSmallException e) {
+            e.printStackTrace();
+        }
     }
 }
